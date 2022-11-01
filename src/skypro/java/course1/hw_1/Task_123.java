@@ -7,6 +7,7 @@ public class Task_123 {
     public static void main(String[] args) {
         task_1();
         task_2();
+        task_3();
     }
 
     /*Реализуйте метод, который получает в качестве параметра год, а затем проверяет, является ли он високосным, и выводит
@@ -68,6 +69,38 @@ public class Task_123 {
             default:
                 System.out.println("Для Вашей ОС не предусмотрено мобильное приложение.");
         }
+    }
+
+    /* Возвращаемся к любимой многими задаче на расчет дней доставки банковской карты от банка.
+    Доставка в пределах 20 км занимает сутки.
+    Доставка в пределах от 20 км до 60 км добавляет еще один день доставки.
+    То есть с каждым следующим интервалом доставки срок увеличивается на 1 день.
+        deliveryDistance <= 20 -> 1 день
+        20 < deliveryDistance < 60 -> 2 дня
+        60 <= deliveryDistance < 100 -> 3 дня
+        100 <= deliveryDistance < 140 -> 4 дня
+        и т.д.
+    Наша задача — доработать код, а именно написать метод, который на вход принимает дистанцию и возвращает итоговое
+    количество дней доставки.*/
+    public static void task_3() {
+        System.out.println("\nЗадание 3.");
+        int deliveryDistance = 100;
+        printTheDeliveryTime(deliveryDistance);
+    }
+
+    public static int findTheDeliveryTime (int distance) {
+        int time;
+        if (distance <= 20) {
+            time = 1;
+        } else {
+            time = (distance - 20) / 40 + 2;
+        }
+        return time;
+    }
+
+    public static void printTheDeliveryTime(int distance) {
+        int deliveryTime = findTheDeliveryTime(distance);
+        System.out.printf("При дистанции %d км доставка займет дней: %d.", distance, deliveryTime);
     }
 
 
